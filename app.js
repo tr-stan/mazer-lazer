@@ -1,19 +1,24 @@
 class Room {
-	constructor(num, forward, left, right) {
-		this.num = num;
+	constructor(forward, left, right, bg_img) {
 		this.forward = forward;
 		this.left = left;
 		this.right = right;
+		this.bg_img = bg_img;
 	}
+
 }
 // create array to hold all room objects
-let rooms = []
-for (let i=0; i<9; i++) {
-rooms[i] = new Room(i, `room ${i+1}`, `room ${i+2}`, "dead");
-}
-console.log(rooms)
+let rooms = [];
+
+// create room objects to fill array (rooms in maze)
+let room1 = new Room("room2", "room5", "deathTrap");
+console.log(room1);
+rooms.push(room1);
+console.log(rooms);
+let currentRoom = room1;
+
 $("#left").click(function() {
-	console.log(currentRoom.left);
+	$("#currentRoom").css({background: 'url("./dungeon-hall-2.jpg") center center no-repeat'});
 })
 $("#forward").click(function() {
 	console.log(currentRoom.forward);
