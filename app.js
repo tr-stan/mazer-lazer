@@ -6,9 +6,12 @@ class Room {
 		this.right = right;
 	}
 }
-
-let currentRoom = new Room(1, "room 2", "room 5", "dead");
-
+// create array to hold all room objects
+let rooms = []
+for (let i=0; i<9; i++) {
+rooms[i] = new Room(i, `room ${i+1}`, `room ${i+2}`, "dead");
+}
+console.log(rooms)
 $("#left").click(function() {
 	console.log(currentRoom.left);
 })
