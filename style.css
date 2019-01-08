@@ -1,8 +1,14 @@
 
 #currentRoom {
-	background-color: purple;
+	background-repeat:no-repeat;
+    background-position: center center;
+	background-image: url('./start-page.jpg');
 	height: 500px;
 }
 section {
 	text-align: center;
+}
+#roomName {
+	background: white;
+	margin-top: 20px;
 }
