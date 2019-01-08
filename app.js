@@ -4,7 +4,20 @@ $("#left").hide();
 $("#right").hide();
 $("#dead").hide();
 
-//create class for making room objects
+// create cipher and answer
+let cipher = "ZDRA HT OZZ";
+let answer = "LOVE IS ALL";
+
+// create clue variables, if true then listed in legend on screen for the room w/ cipher in it
+let letterZ = false;
+let letterD = false;
+let letterR = false;
+let letterA = false;
+let letterH = false;
+let letterT = false;
+let letterO = false;
+
+// create class for making room objects
 class Room {
     constructor(name, background, clue) {
         this.name = name;
