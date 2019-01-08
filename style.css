@@ -1,14 +1,27 @@
 
+section {
+	text-align: center;
+	position: relative;
+}
 #current-room {
 	background-repeat:no-repeat;
     background-position: center center;
 	background-image: url('./start-page.jpg');
 	height: 500px;
 }
-section {
-	text-align: center;
-}
-#roomName {
+
+#room-name {
 	background: white;
 	margin-top: 20px;
+}
+
+.navigate {
+	margin: 50px auto;
+}
+
+#start-game, .msg {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
