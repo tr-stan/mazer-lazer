@@ -8,22 +8,22 @@ $("#first").hide();
 $("#second").hide();
 
 // create cipher and answer
-let cipherText = "ZDRA HT OZZ";
-let answer = "LOVE IS ALL";
-let numClues = 0;
+// let cipherText = "ZDRA HT OZZ";
+// let answer = "LOVE IS ALL";
 // create clue variables, if true then listed in legend on screen for the room w/ cipher in it
-let letterZ = false;
-let letterD = false;
-let letterR = false;
-let letterA = false;
-let letterH = false;
-let letterT = false;
-let letterO = false;
+// let letterZ = false;
+// let letterD = false;
+// let letterR = false;
+// let letterA = false;
+// let letterH = false;
+// let letterT = false;
+// let letterO = false;
 
 
 // create lives variable for booby traps and falls in death pit, guesses for cipher guesses before game over
 let lives = 3;
 let guesses = 3;
+let numClues = 0;
 
 // create class for making room objects
 class Room {
@@ -51,18 +51,26 @@ class Room {
     leftClick() {
         currentRoom = this.left;
         $("#current-room").css({ "background-image": "url(" + this.left.background + ")" });
-        $("#first").show();
-        $("#second").show();
-        $("#first").addClass(this.left.firstClue);
-        $("#second").addClass(this.left.secondClue);
+         if (currentRoom.firstClicked === false) {
+            $("#first").show();
+            $("#first").addClass(this.left.firstClue);
+        }
+        if (currentRoom.secondClicked === false) {
+            $("#second").show();
+            $("#second").addClass(this.left.secondClue);
+        }
     }
     rightClick() {
         currentRoom = this.right;
         $("#current-room").css({ "background-image": "url(" + this.right.background + ")" });
-        $("#first").show();
-        $("#second").show();
-        $("#first").addClass(this.right.firstClue);
-        $("#second").addClass(this.right.secondClue);
+         if (currentRoom.firstClicked === false) {
+            $("#first").show();
+            $("#first").addClass(this.right.firstClue);
+        }
+        if (currentRoom.secondClicked === false) {
+            $("#second").show();
+            $("#second").addClass(this.right.secondClue);
+        }
     }
 
 }
@@ -78,6 +86,7 @@ let room6 = new Room("room 6", "images/space-hall.jpeg", "good", "bad", false, f
 let cipher = new Room("cipher", "images/end-hall.jpg");
 let death = new Room("death", "images/laser-beam.jpg");
 let victory = new Room("victory", "images/utopia.jpg");
+// declare properties of each room object to establish maze sequence logic
 room1.forward = room2;
 room1.left = room5;
 room1.right = death;
@@ -126,7 +135,13 @@ $("#retry").click(function() {
 $("#forward").click(function() {
     currentRoom.forwardClick();
     console.log(`Player clicked forward. Current room is ${currentRoom.name}`);
-    if (currentRoom === room1) {
+    if (currentRoom === cipher) {
+        if (numClues < 4) {
+            $("#forward").hide();
+        } else {
+            $("#forward").show();
+        }
+    } else if (currentRoom === room1) {
         $("#first").hide();
         $("#second").hide();
     } else if (currentRoom === death) {
@@ -159,7 +174,13 @@ $("#forward").click(function() {
 $("#left").click(function() {
     currentRoom.leftClick();
     console.log(`Player clicked left. Current room is ${currentRoom.name}`);
-    if (currentRoom === room1) {
+    if (currentRoom === cipher) {
+        if (numClues < 4) {
+            $("#forward").hide();
+        } else {
+            $("#forward").show();
+        }
+    } else if (currentRoom === room1) {
         $("#first").hide();
         $("#second").hide();
     } else if (currentRoom === death) {
@@ -192,7 +213,13 @@ $("#left").click(function() {
 $("#right").click(function() {
     currentRoom.rightClick();
     console.log(`Player clicked right. Current room is ${currentRoom.name}`);
-    if (currentRoom === room1) {
+    if (currentRoom === cipher) {
+        if (numClues < 2) {
+            $("#forward").hide();
+        } else {
+            $("#forward").show();
+        }
+    } else if (currentRoom === room1) {
         $("#first").hide();
         $("#second").hide();
     } else if (currentRoom === death) {
@@ -227,10 +254,12 @@ $("#first").click(function() {
     if ($(this).hasClass("good")) {
         numClues++;
         $(this).hide();
+        $(this).removeClass("good");
         console.log(`clues: ${numClues}`)
     } else {
         lives--;
         $(this).hide();
+        $(this).removeClass("bad");
         console.log(`lives: ${lives}`)
     }
 })
@@ -240,10 +269,12 @@ $("#second").click(function() {
     if ($(this).hasClass("good")) {
         numClues++;
         $(this).hide();
+        $(this).removeClass("good");
         console.log(`clues: ${numClues}`)
     } else {
         lives--;
         $(this).hide();
+        $(this).removeClass("bad");
         console.log(`lives: ${lives}`)
     }
 })
