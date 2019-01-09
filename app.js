@@ -1,11 +1,14 @@
 // initially hide certain elements
+$("#game-over").hide();
 $("#forward").hide();
 $("#left").hide();
 $("#right").hide();
 $("#dead").hide();
+$("#first").hide();
+$("#second").hide();
 
 // create cipher and answer
-let cipher = "ZDRA HT OZZ";
+let cipherText = "ZDRA HT OZZ";
 let answer = "LOVE IS ALL";
 
 // create clue variables, if true then listed in legend on screen for the room w/ cipher in it
@@ -17,39 +20,58 @@ let letterH = false;
 let letterT = false;
 let letterO = false;
 
+
+// create lives variable for booby traps and falls in death pit, guesses for cipher guesses before game over
+let lives = 3;
+let guesses = 3;
+
 // create class for making room objects
 class Room {
-    constructor(name, background, clue) {
+    constructor(name, background, firstClue, secondClue) {
         this.name = name;
         this.background = background;
+        this.firstClue = firstClue;
+        this.secondClue = secondClue;
     }
 
     forwardClick() {
         currentRoom = this.forward;
         $("#current-room").css({ "background-image": "url(" + this.forward.background + ")" });
+        $("#first").show();
+        $("#second").show();
+        $("#first").append(this.firstClue);
+        $("#second").append(this.secondClue);
     }
     leftClick() {
         currentRoom = this.left;
         $("#current-room").css({ "background-image": "url(" + this.left.background + ")" });
+        $("#first").show();
+        $("#second").show();
+        $("#first").append(this.firstClue);
+        $("#second").append(this.secondClue);
     }
     rightClick() {
         currentRoom = this.right;
         $("#current-room").css({ "background-image": "url(" + this.right.background + ")" });
+        $("#first").show();
+        $("#second").show();
+        $("#first").append(this.firstClue);
+        $("#second").append(this.secondClue);
     }
 
 }
 
 // create object for each room in maze, connect the rooms according to desired maze logic
-let start = new Room("start", "./start-page.jpg")
-let room1 = new Room("room1", "./dungeon-intersection.jpg", );
-let room2 = new Room("room 2", "./dungeon-hall-2.jpg");
-let room3 = new Room("room 3", "./dungeon-intersection.jpg");
-let room4 = new Room("room 4", "./dungeon-hall-2.jpg");
-let room5 = new Room("room 5", "./dungeon-intersection.jpg");
-let room6 = new Room("room 6", "./dungeon-hall-2.jpg");
-let cipher = new Room("cipher", "./chest.jpg");
-let death = new Room("death", "./death-pit.jpg");
-let victory = new Room("victory", "./treasure.jpg");
+let start = new Room("start", "./door.jpg")
+let room1 = new Room("room1", "./spaceship-hall.jpg");
+let room2 = new Room("room 2", "./two-door-hall.jpg", "good", "bad");
+let room3 = new Room("room 3", "./space-hall.jpeg", "bad", "good");
+let room4 = new Room("room 4", "./sci-fi-hall.jpg", "bad", "bad");
+let room5 = new Room("room 5", "./ship-hall.jpg", "bad", "good");
+let room6 = new Room("room 6", "./space-hall.jpeg", "good", "bad");
+let cipher = new Room("cipher", "./end-hall.jpg");
+let death = new Room("death", "./laser-beam.jpg");
+let victory = new Room("victory", "./utopia.jpg");
 room1.forward = room2;
 room1.left = room5;
 room1.right = death;
@@ -73,7 +95,8 @@ cipher.left = room4;
 cipher.right = room6;
 
 let currentRoom = start;
-// create click function to start the game from start page
+
+// click function to start the game from start page
 $("#start-game").click(function() {
     currentRoom = room1;
     $("#current-room").css({ "background-image": "url(" + room1.background + ")" });
@@ -83,6 +106,7 @@ $("#start-game").click(function() {
     $("#right").show();
 })
 
+// click function to restart game after death
 $("#retry").click(function() {
     currentRoom = room1;
     $("#current-room").css({ "background-image": "url(" + room1.background + ")" });
@@ -92,52 +116,101 @@ $("#retry").click(function() {
     $("#right").show();
 })
 
-// create function for each time the player clicks the 'forward' button
+// function for each time the player clicks the 'forward' button
 $("#forward").click(function() {
     currentRoom.forwardClick();
     console.log(`Player clicked forward. Current room is ${currentRoom.name}`);
-    if (currentRoom === death) {
-        $("#forward").hide();
-        $("#left").hide();
-        $("#right").hide();
-        $("#dead").show();
+    if (currentRoom === room1) {
+        $("#first").hide();
+        $("#second").hide();
+    } else if (currentRoom === death) {
+        lives--;
+        $("#first").hide();
+        $("#second").hide();
+        if (lives === 0) {
+            $("#current-room").hide();
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#game-over").show();
+        } else {
+            console.log(lives);
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#dead").show();
+        }
     } else if (currentRoom === victory) {
         $("#forward").hide();
         $("#left").hide();
         $("#right").hide();
+        $("#first").hide();
+        $("#second").hide();
     }
 })
 
-// create function for each time the player clicks the 'left' button
+// function for each time the player clicks the 'left' button
 $("#left").click(function() {
     currentRoom.leftClick();
     console.log(`Player clicked left. Current room is ${currentRoom.name}`);
-    if (currentRoom === death) {
-        $("#forward").hide();
-        $("#left").hide();
-        $("#right").hide();
-        $("#dead").show();
+    if (currentRoom === room1) {
+        $("#first").hide();
+        $("#second").hide();
+    } else if (currentRoom === death) {
+        lives--;
+        $("#first").hide();
+        $("#second").hide();
+        if (lives === 0) {
+            $("#current-room").hide();
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#game-over").show();
+        } else {
+            console.log(lives);
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#dead").show();
+        }
     } else if (currentRoom === victory) {
         $("#forward").hide();
         $("#left").hide();
         $("#right").hide();
+        $("#first").hide();
+        $("#second").hide();
     }
 })
 
-// create function for each time the player clicks the 'right' button
+// function for each time the player clicks the 'right' button
 $("#right").click(function() {
     currentRoom.rightClick();
     console.log(`Player clicked right. Current room is ${currentRoom.name}`);
-    if (currentRoom === death) {
-        $("#forward").hide();
-        $("#left").hide();
-        $("#right").hide();
-        $("#dead").show();
+    if (currentRoom === room1) {
+        $("#first").hide();
+        $("#second").hide();
+    } else if (currentRoom === death) {
+        lives--;
+        $("#first").hide();
+        $("#second").hide();
+        if (lives === 0) {
+            $("#current-room").hide();
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#game-over").show();
+        } else {
+            console.log(lives);
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#dead").show();
+        }
     } else if (currentRoom === victory) {
         $("#forward").hide();
         $("#left").hide();
         $("#right").hide();
+        $("#first").hide();
+        $("#second").hide();
     }
 })
-
-console.log(`Current room is ${currentRoom.name}`)

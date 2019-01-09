@@ -1,27 +1,45 @@
-
 section {
-	text-align: center;
-	position: relative;
+    text-align: center;
+    position: relative;
 }
+
+div {
+    margin: 0 auto;
+    text-align: center;
+}
+
 #current-room {
-	background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-position: center center;
-	background-image: url('./start-page.jpg');
-	height: 500px;
+    background-image: url('./door.jpg');
+    height: 500px;
 }
 
 #room-name {
-	background: white;
-	margin-top: 20px;
+    background: white;
+    margin-top: 20px;
 }
 
-.navigate {
-	margin: 50px auto;
+#navigate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#navigate img {
+	max-height: auto;
+	max-width: 80px;
+	padding: 30px;
+	margin: 0 auto;
+}
+#start-game, {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#start-game, .msg {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.msg p {
+    margin: 0 auto;
+    width: 80px;
 }

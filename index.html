@@ -8,22 +8,28 @@
 
 <body>
     <section id="current-room">
-        <button id="left" class="navigate">Left</button>
-        <button id="forward" class="navigate">Forward</button>
-        <button id="right" class="navigate">Right</button>
-        <button id="start-game">Start the game!</button>
+    	<img id="first" src="./portal.png">
+    	<img id="second" src="./blue-portal.png">
+        <div id="navigate">
+            <img id="left" src="./left-arrow.png">
+            <img id="forward" src="./up-arrow.png">
+            <img id="right" src="./right-arrow.png">
+            <button id="start-game">ENTER</button>
+        </div>
+        
         <div class="msg" id="dead">
-        	<p>You fell into a pit death trap.</p>
+            <p>You tripped a wire and were shot by a laser.</p>
             <button id="retry">Try again.</button>
         </div>
-        <h2 id="room-name"></h2>
+    </section>
+    <section id="game-over">
+        <h1>GAME OVER</h1>
+        <h2>Refresh page to play again</h2>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./app.js"></script>
     <footer>
-    	<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-    	<div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
+        <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>, and <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </footer>
 </body>
 
