@@ -16,7 +16,7 @@ div {
 #current-room {
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('./door.jpg');
+    background-image: url('images/door.jpg');
     height: 500px;
 }
 

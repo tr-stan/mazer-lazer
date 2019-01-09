@@ -38,8 +38,8 @@ class Room {
         currentRoom = this.forward;
         $("#current-room").css({ "background-image": "url(" + this.forward.background + ")" });
         $("#first").show();
-        $("#second").show();
         $("#first").addClass(this.forward.firstClue);
+        $("#second").show();
         $("#second").addClass(this.forward.secondClue);
     }
     leftClick() {
@@ -62,16 +62,16 @@ class Room {
 }
 
 // create object for each room in maze, connect the rooms according to desired maze logic
-let start = new Room("start", "./door.jpg")
-let room1 = new Room("room1", "./spaceship-hall.jpg");
-let room2 = new Room("room 2", "./two-door-hall.jpg", "good", "bad");
-let room3 = new Room("room 3", "./space-hall.jpeg", "bad", "good");
-let room4 = new Room("room 4", "./sci-fi-hall.jpg", "bad", "bad");
-let room5 = new Room("room 5", "./ship-hall.jpg", "bad", "good");
-let room6 = new Room("room 6", "./space-hall.jpeg", "good", "bad");
-let cipher = new Room("cipher", "./end-hall.jpg");
-let death = new Room("death", "./laser-beam.jpg");
-let victory = new Room("victory", "./utopia.jpg");
+let start = new Room("start", "images/door.jpg")
+let room1 = new Room("room1", "images/spaceship-hall.jpg");
+let room2 = new Room("room 2", "images/two-door-hall.jpg", "good", "bad");
+let room3 = new Room("room 3", "images/space-hall.jpeg", "bad", "good");
+let room4 = new Room("room 4", "images/sci-fi-hall.jpg", "bad", "bad");
+let room5 = new Room("room 5", "images/ship-hall.jpg", "bad", "good");
+let room6 = new Room("room 6", "images/space-hall.jpeg", "good", "bad");
+let cipher = new Room("cipher", "images/end-hall.jpg");
+let death = new Room("death", "images/laser-beam.jpg");
+let victory = new Room("victory", "images/utopia.jpg");
 room1.forward = room2;
 room1.left = room5;
 room1.right = death;
