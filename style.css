@@ -8,6 +8,11 @@ div {
     text-align: center;
 }
 
+.item {
+	display: absolute;
+	max-height: 50px;
+}
+
 #current-room {
     background-repeat: no-repeat;
     background-position: center center;
@@ -26,12 +31,14 @@ div {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 #navigate img {
 	max-height: auto;
 	max-width: 80px;
-	padding: 30px;
+	padding: 20px;
 	margin: 0 auto;
 }
+
 #start-game, {
     position: absolute;
     top: 40%;

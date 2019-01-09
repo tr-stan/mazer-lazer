@@ -10,7 +10,7 @@ $("#second").hide();
 // create cipher and answer
 let cipherText = "ZDRA HT OZZ";
 let answer = "LOVE IS ALL";
-
+let numClues = 0;
 // create clue variables, if true then listed in legend on screen for the room w/ cipher in it
 let letterZ = false;
 let letterD = false;
@@ -39,24 +39,24 @@ class Room {
         $("#current-room").css({ "background-image": "url(" + this.forward.background + ")" });
         $("#first").show();
         $("#second").show();
-        $("#first").append(this.firstClue);
-        $("#second").append(this.secondClue);
+        $("#first").addClass(this.forward.firstClue);
+        $("#second").addClass(this.forward.secondClue);
     }
     leftClick() {
         currentRoom = this.left;
         $("#current-room").css({ "background-image": "url(" + this.left.background + ")" });
         $("#first").show();
         $("#second").show();
-        $("#first").append(this.firstClue);
-        $("#second").append(this.secondClue);
+        $("#first").addClass(this.left.firstClue);
+        $("#second").addClass(this.left.secondClue);
     }
     rightClick() {
         currentRoom = this.right;
         $("#current-room").css({ "background-image": "url(" + this.right.background + ")" });
         $("#first").show();
         $("#second").show();
-        $("#first").append(this.firstClue);
-        $("#second").append(this.secondClue);
+        $("#first").addClass(this.right.firstClue);
+        $("#second").addClass(this.right.secondClue);
     }
 
 }
@@ -212,5 +212,30 @@ $("#right").click(function() {
         $("#right").hide();
         $("#first").hide();
         $("#second").hide();
+    }
+})
+
+// function for each time player clicks on a clue item
+$("#first").click(function() {
+    if ($(this).hasClass("good")) {
+        numClues++;
+        $(this).hide();
+        console.log(`clues: ${numClues}`)
+    } else {
+        lives--;
+        $(this).hide();
+        console.log(`lives: ${lives}`)
+    }
+})
+
+$("#second").click(function() {
+    if ($(this).hasClass("good")) {
+        numClues++;
+        $(this).hide();
+        console.log(`clues: ${numClues}`) 
+    } else {
+        lives--;
+        $(this).hide();
+        console.log(`lives: ${lives}`)
     }
 })
