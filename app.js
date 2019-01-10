@@ -76,13 +76,12 @@ class Room {
 }
 
 // create object for each room in maze, connect the rooms according to desired maze logic
-let start = new Room("start", "images/spacy-hall.png")
-let room1 = new Room("room1", "images/filled-walls.png");
+let room1 = new Room("room1", "images/mid-hall.png");
 let room2 = new Room("room 2", "images/starry-hall.png", "good", "bad", false, false);
-let room3 = new Room("room 3", "images/filled-walls.png", "bad", "good", false, false);
+let room3 = new Room("room 3", "images/mid-hall.png", "bad", "good", false, false);
 let room4 = new Room("room 4", "images/starry-hall.png", "bad", "bad", false, false);
-let room5 = new Room("room 5", "images/filled-walls.png", "bad", "good", false, false);
-let room6 = new Room("room 6", "images/starry-hall.png", "good", "bad", false, false);
+let room5 = new Room("room 5", "images/mid-hall.png", "bad", "good", false, false);
+let room6 = new Room("room 6", "images/two-blues.png", "good", "bad", false, false);
 let cipher = new Room("cipher", "images/dark-sides.png");
 let death = new Room("death", "images/laser-beam.jpg");
 let victory = new Room("victory", "images/utopia.jpg");
@@ -109,7 +108,7 @@ cipher.forward = victory;
 cipher.left = room4;
 cipher.right = room6;
 
-let currentRoom = start;
+let currentRoom = room1;
 
 // click function to start the game from start page
 $("#start-game").click(function() {
