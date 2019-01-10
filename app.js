@@ -21,7 +21,7 @@ $("#second").hide();
 
 
 // create lives variable for booby traps and falls in death pit, guesses for cipher guesses before game over
-let lives = 3;
+let lives = 9;
 let guesses = 3;
 let numClues = 0;
 
@@ -76,14 +76,14 @@ class Room {
 }
 
 // create object for each room in maze, connect the rooms according to desired maze logic
-let start = new Room("start", "images/door.jpg")
-let room1 = new Room("room1", "images/spaceship-hall.jpg");
-let room2 = new Room("room 2", "images/two-door-hall.jpg", "good", "bad", false, false);
-let room3 = new Room("room 3", "images/space-hall.jpeg", "bad", "good", false, false);
-let room4 = new Room("room 4", "images/sci-fi-hall.jpg", "bad", "bad", false, false);
-let room5 = new Room("room 5", "images/ship-hall.jpg", "bad", "good", false, false);
-let room6 = new Room("room 6", "images/space-hall.jpeg", "good", "bad", false, false);
-let cipher = new Room("cipher", "images/end-hall.jpg");
+let start = new Room("start", "images/spacy-hall.png")
+let room1 = new Room("room1", "images/filled-walls.png");
+let room2 = new Room("room 2", "images/starry-hall.png", "good", "bad", false, false);
+let room3 = new Room("room 3", "images/filled-walls.png", "bad", "good", false, false);
+let room4 = new Room("room 4", "images/starry-hall.png", "bad", "bad", false, false);
+let room5 = new Room("room 5", "images/filled-walls.png", "bad", "good", false, false);
+let room6 = new Room("room 6", "images/starry-hall.png", "good", "bad", false, false);
+let cipher = new Room("cipher", "images/dark-sides.png");
 let death = new Room("death", "images/laser-beam.jpg");
 let victory = new Room("victory", "images/utopia.jpg");
 // declare properties of each room object to establish maze sequence logic
@@ -173,6 +173,7 @@ $("#forward").click(function() {
 // function for each time the player clicks the 'left' button
 $("#left").click(function() {
     currentRoom.leftClick();
+    $("#forward").show();
     console.log(`Player clicked left. Current room is ${currentRoom.name}`);
     if (currentRoom === cipher) {
         if (numClues < 4) {
@@ -212,6 +213,7 @@ $("#left").click(function() {
 // function for each time the player clicks the 'right' button
 $("#right").click(function() {
     currentRoom.rightClick();
+    $("#forward").show();
     console.log(`Player clicked right. Current room is ${currentRoom.name}`);
     if (currentRoom === cipher) {
         if (numClues < 2) {

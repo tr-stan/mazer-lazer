@@ -16,8 +16,8 @@ div {
 #current-room {
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('images/door.jpg');
-    height: 500px;
+    background-image: url('images/outer-space.png');
+    height: 600px;
 }
 
 #room-name {
@@ -34,9 +34,9 @@ div {
 
 #navigate img {
 	max-height: auto;
-	max-width: 80px;
+	max-width: 50px;
 	padding: 20px;
-	margin: 0 auto;
+	left: 45%;
 }
 
 #start-game, {
