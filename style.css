@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    width: 100%;
+    background: #01162f;
+}
+
 section {
     text-align: center;
     position: relative;
@@ -9,8 +15,8 @@ div {
 }
 
 .button {
-	display: absolute;
-	max-height: 50px;
+    display: absolute;
+    max-height: 50px;
 }
 
 #current-room {
@@ -32,14 +38,45 @@ div {
     transform: translate(-50%, -50%);
 }
 
-#start-game, {
+#start-game,
+    {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.msg p {
-    margin: 0 auto;
-    width: 80px;
+@keyframes stretch {
+    0% {
+    	transform: scale(.2);
+        background-color: rgba(46, 9, 1, 1);
+        border-radius: 100%;
+    }
+
+    50% {
+    	
+        background-color: rgba(46, 9, 1, .5);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(46, 9, 1, .8);
+    }
+}
+
+#dead {
+	position: absolute;
+    height: 200px;
+    width: 200px;
+    top: 250px;
+    left: 600px;
+    border-radius: 50px;
+    background-color: rgba(46, 9, 1, .8);
+    animation-name: stretch;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running;
 }

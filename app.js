@@ -51,7 +51,7 @@ class Room {
     leftClick() {
         currentRoom = this.left;
         $("#current-room").css({ "background-image": "url(" + this.left.background + ")" });
-         if (currentRoom.firstClicked === false) {
+        if (currentRoom.firstClicked === false) {
             $("#first").show();
             $("#first").addClass(this.left.firstClue);
         }
@@ -63,7 +63,7 @@ class Room {
     rightClick() {
         currentRoom = this.right;
         $("#current-room").css({ "background-image": "url(" + this.right.background + ")" });
-         if (currentRoom.firstClicked === false) {
+        if (currentRoom.firstClicked === false) {
             $("#first").show();
             $("#first").addClass(this.right.firstClue);
         }
@@ -83,7 +83,7 @@ let room4 = new Room("room 4", "images/starry-hall.png", "bad", "bad", false, fa
 let room5 = new Room("room 5", "images/mid-hall.png", "bad", "good", false, false);
 let room6 = new Room("room 6", "images/two-blues.png", "good", "bad", false, false);
 let cipher = new Room("cipher", "images/dark-sides.png");
-let death = new Room("death", "images/laser-beam.jpg");
+let death = new Room("death", "images/danger.png");
 let victory = new Room("victory", "images/utopia.jpg");
 // declare properties of each room object to establish maze sequence logic
 room1.forward = room2;
@@ -135,6 +135,8 @@ $("#forward").click(function() {
     currentRoom.forwardClick();
     console.log(`Player clicked forward. Current room is ${currentRoom.name}`);
     if (currentRoom === cipher) {
+        $("#first").hide();
+        $("#second").hide();
         if (numClues < 4) {
             $("#forward").hide();
         } else {
@@ -175,6 +177,8 @@ $("#left").click(function() {
     $("#forward").show();
     console.log(`Player clicked left. Current room is ${currentRoom.name}`);
     if (currentRoom === cipher) {
+        $("#first").hide();
+        $("#second").hide();
         if (numClues < 4) {
             $("#forward").hide();
         } else {
@@ -215,6 +219,8 @@ $("#right").click(function() {
     $("#forward").show();
     console.log(`Player clicked right. Current room is ${currentRoom.name}`);
     if (currentRoom === cipher) {
+        $("#first").hide();
+        $("#second").hide();
         if (numClues < 2) {
             $("#forward").hide();
         } else {
@@ -278,4 +284,10 @@ $("#second").click(function() {
         $(this).removeClass("bad");
         console.log(`lives: ${lives}`)
     }
+})
+
+$("#reset").click(function() {
+    $("#game-over").hide();
+    $("#start-game").show();
+
 })

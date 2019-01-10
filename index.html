@@ -8,24 +8,23 @@
 
 <body>
     <section id="current-room">
-    	<img id="first" class="button" src="images/portal.png">
-    	<img id="second" class="button" src="images/blue-portal.png">
+        <img id="first" class="button" src="images/portal.png">
+        <img id="second" class="button" src="images/blue-portal.png">
         <div id="navigate">
             <img id="left" class="button" src="images/left-arrow.png">
             <img id="forward" class="button" src="images/up-arrow.png">
             <img id="right" class="button" src="images/right-arrow.png">
             <button id="start-game">ENTER</button>
         </div>
-        
-        <div class="msg" id="dead">
-            <p>You tripped a wire and were shot by a laser.</p>
-            <button id="retry">Try again.</button>
-        </div>
     </section>
-    <section id="game-over">
+    <section id="dead">
+        <p>You tripped a wire and were shot by a laser.</p>
+        <button id="retry">Try again.</button>
+    </section>
+    <div id="game-over">
         <h1>GAME OVER</h1>
-        <h2>Refresh page to play again</h2>
-    </section>
+        <button id= "reset">Play again</button>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./app.js"></script>
     <footer>
