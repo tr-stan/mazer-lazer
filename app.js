@@ -1,11 +1,12 @@
 // initially hide certain elements
-$("#game-over").hide();
 $("#forward").hide();
 $("#left").hide();
 $("#right").hide();
-$("#dead").hide();
 $("#first").hide();
 $("#second").hide();
+$("#instructions").hide();
+$("#lose-life").hide();
+$("#game-over").hide();
 
 // create cipher and answer
 // let cipherText = "ZDRA HT OZZ";
@@ -111,7 +112,7 @@ cipher.right = room6;
 let currentRoom = room1;
 
 // click function to start the game from start page
-$("#start-game").click(function() {
+$("#enter").click(function() {
     currentRoom = room1;
     $("#current-room").css({ "background-image": "url(" + room1.background + ")" });
     $("#start-game").hide()
@@ -120,11 +121,18 @@ $("#start-game").click(function() {
     $("#right").show();
 })
 
+$("#info").click(function() {
+    $("#instructions").fadeIn();
+    $("#x").click(function() {
+        $("#instructions").fadeOut();
+    })
+})
+
 // click function to restart game after death
 $("#retry").click(function() {
     currentRoom = room1;
     $("#current-room").css({ "background-image": "url(" + room1.background + ")" });
-    $("#dead").hide()
+    $("#lose-life").hide()
     $("#forward").show();
     $("#left").show();
     $("#right").show();
@@ -160,7 +168,7 @@ $("#forward").click(function() {
             $("#forward").hide();
             $("#left").hide();
             $("#right").hide();
-            $("#dead").show();
+            $("#lose-life").show();
         }
     } else if (currentRoom === victory) {
         $("#forward").hide();
@@ -202,7 +210,7 @@ $("#left").click(function() {
             $("#forward").hide();
             $("#left").hide();
             $("#right").hide();
-            $("#dead").show();
+            $("#lose-life").show();
         }
     } else if (currentRoom === victory) {
         $("#forward").hide();
@@ -244,7 +252,7 @@ $("#right").click(function() {
             $("#forward").hide();
             $("#left").hide();
             $("#right").hide();
-            $("#dead").show();
+            $("#lose-life").show();
         }
     } else if (currentRoom === victory) {
         $("#forward").hide();
@@ -305,6 +313,8 @@ $("#reset").click(function() {
     $("#game-over").hide();
     $("#current-room").show();
     $("#start-game").show();
+    $("#first").hide();
+    $("#second").hide();
     $(room2.firstClicked = false);
     $(room2.secondClicked = false);
     $(room3.firstClicked = false);

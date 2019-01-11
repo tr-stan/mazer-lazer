@@ -1,17 +1,46 @@
+@keyframes stretch {
+    0% {
+        transform: scale(.2);
+        background-color: rgba(46, 9, 1, 1);
+        border-radius: 100%;
+    }
+
+    50% {
+
+        background-color: rgba(46, 9, 1, .5);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: rgba(46, 9, 1, .8);
+    }
+}
+
+@font-face {
+    font-family: "PressStart2P";
+    src: url("PressStart2P.ttf");
+}
+
 body {
     margin: 0;
     width: 100%;
     background: #01162f;
+    font-family: PressStart2P, sans-serif;
 }
 
 section {
     text-align: center;
-    position: relative;
+
 }
 
 div {
     margin: 0 auto;
     text-align: center;
+}
+
+h1 {
+	background: rgba(11,79,174, 0.8);
+	padding: 10px;
 }
 
 .button {
@@ -26,6 +55,14 @@ div {
     height: 600px;
 }
 
+#instructions {
+	position: absolute;
+	top: 150px;
+	left: 70px;
+	background-color: rgba(145,192,253, 0.8);
+	padding: 50px;
+}
+
 #room-name {
     background: white;
     margin-top: 20px;
@@ -33,13 +70,12 @@ div {
 
 #navigate {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 71%;
+    left: 49%;
     transform: translate(-50%, -50%);
 }
 
-#start-game,
-    {
+#start-game {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -47,18 +83,17 @@ div {
 }
 
 #game-over {
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center center;
-	background-image: url("images/dead.png");
-	height: 600px;
+    background-image: url("images/dead.png");
+    height: 600px;
 }
 
-#dead {
-	position: absolute;
+#lose-life {
+    position: relative;
+    top: -450px;
     height: 200px;
     width: 200px;
-    top: 250px;
-    left: 600px;
     border-radius: 50px;
     background-color: rgba(46, 9, 1, .8);
     animation-name: stretch;
@@ -68,27 +103,4 @@ div {
     animation-direction: alternate;
     animation-fill-mode: none;
     animation-play-state: running;
-}
-
-@keyframes stretch {
-    0% {
-    	transform: scale(.2);
-        background-color: rgba(46, 9, 1, 1);
-        border-radius: 100%;
-    }
-
-    50% {
-    	
-        background-color: rgba(46, 9, 1, .5);
-    }
-
-    100% {
-        transform: scale(1);
-        background-color: rgba(46, 9, 1, .8);
-    }
-}
-
-@font-face {
-	font-family: PressStart2P;
-	src: url("/PressStart2P.tff") format("tff");
 }

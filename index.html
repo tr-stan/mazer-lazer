@@ -7,29 +7,42 @@
 </head>
 
 <body>
-    <section id="current-room">
-        <img id="first" class="button" src="images/portal.png">
-        <img id="second" class="button" src="images/blue-portal.png">
-        <div id="navigate">
-            <img id="left" class="button" src="images/lefty.png">
-            <img id="forward" class="button" src="images/straighty.png">
-            <img id="right" class="button" src="images/righty.png">
-            <button id="start-game">ENTER</button>
+    <div id="gameplay">
+        <div id="start-game">
+            <h1>MAZER LAZER</h1>
+            <button id="enter" class="button">ENTER THE MAZE</button>
+            <button id="info" class="button">INSTRUCTIONS</button>
         </div>
-    </section>
-    <section id="dead">
-        <p>You tripped a wire and were shot by a laser.</p>
-        <button id="retry" class="button">Try again.</button>
-    </section>
-    <div id="game-over">
-        <h1>GAME OVER</h1>
-        <button id="reset" class="button">Play again</button>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./app.js"></script>
-    <footer>
-        <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>, and <a href="https://www.flaticon.com/authors/darius-dan" title="Darius Dan">Darius Dan</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-    </footer>
+        <div id="instructions">
+            <h1>INSTRUCTIONS</h1>
+            <h2>How to Play</h2>
+            <p>Click on the arrow buttons to navigate to new rooms.</p>
+            <p>If you aren't careful you'll walk right into a laser and lose a life.</p>
+            <p>The goal of the game is to reach the end of the maze.</p>
+            <p>There are gems throughout the rooms.</p>
+            <p>Some of them are booby traps, others are keys.</p>
+            <button id="x" class="button">X</button>
+        </div>
+        <div id="current-room">
+            <img id="first" class="button" src="images/emerald.png">
+            <img id="second" class="button" src="images/diamond.png">
+            <div id="navigate">
+                <img id="left" class="button" src="images/lefty.gif">
+                <img id="forward" class="button" src="images/straighty.gif">
+                <img id="right" class="button" src="images/righty.gif">
+        	</div>
+            </div>
+            <div id="lose-life">
+                <p>You tripped a wire and were shot by a laser.</p>
+                <button id="retry" class="button">Try again.</button>
+            </div>
+            <div id="game-over">
+                <h1>GAME OVER</h1>
+                <button id="reset" class="button">Play again</button>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./app.js"></script>
 </body>
 
 </html>
