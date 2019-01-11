@@ -21,7 +21,7 @@ $("#second").hide();
 
 
 // create lives variable for booby traps and falls in death pit, guesses for cipher guesses before game over
-let lives = 9;
+let lives = 4;
 let guesses = 3;
 let numClues = 0;
 
@@ -149,7 +149,7 @@ $("#forward").click(function() {
         lives--;
         $("#first").hide();
         $("#second").hide();
-        if (lives === 0) {
+        if (lives <= 0) {
             $("#current-room").hide();
             $("#forward").hide();
             $("#left").hide();
@@ -191,7 +191,7 @@ $("#left").click(function() {
         lives--;
         $("#first").hide();
         $("#second").hide();
-        if (lives === 0) {
+        if (lives <= 0) {
             $("#current-room").hide();
             $("#forward").hide();
             $("#left").hide();
@@ -233,7 +233,7 @@ $("#right").click(function() {
         lives--;
         $("#first").hide();
         $("#second").hide();
-        if (lives === 0) {
+        if (lives <= 0) {
             $("#current-room").hide();
             $("#forward").hide();
             $("#left").hide();
@@ -268,6 +268,13 @@ $("#first").click(function() {
         $(this).hide();
         $(this).removeClass("bad");
         console.log(`lives: ${lives}`)
+        if (lives <= 0) {
+            $("#current-room").hide();
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#game-over").show();
+        }
     }
 })
 
@@ -283,11 +290,33 @@ $("#second").click(function() {
         $(this).hide();
         $(this).removeClass("bad");
         console.log(`lives: ${lives}`)
+        if (lives <= 0) {
+            $("#current-room").hide();
+            $("#forward").hide();
+            $("#left").hide();
+            $("#right").hide();
+            $("#game-over").show();
+        }
     }
 })
 
 $("#reset").click(function() {
+    $("#current-room").css({ "background-image": "url('images/start-screen.png')" });
     $("#game-over").hide();
+    $("#current-room").show();
     $("#start-game").show();
-
+    $(room2.firstClicked = false);
+    $(room2.secondClicked = false);
+    $(room3.firstClicked = false);
+    $(room3.secondClicked = false);
+    $(room4.firstClicked = false);
+    $(room4.secondClicked = false);
+    $(room5.firstClicked = false);
+    $(room5.secondClicked = false);
+    $(room6.firstClicked = false);
+    $(room6.secondClicked = false);
+    lives = 4;
+    numClues = 0;
+    console.log(lives);
+    console.log(numClues);
 })
