@@ -1,0 +1,27 @@
+{
+  "name": "mazer-lazer",
+  "version": "1.0.0",
+  "description": "Maze game using jQuery and prototypical inheritance",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo 'Merhabalar'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tri-be/mazer-lazer.git"
+  },
+  "keywords": [
+    "maze",
+    "jquery",
+    "prototype",
+    "object-oriented",
+    "8-bit",
+    "game"
+  ],
+  "author": "Tristan Bennett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tri-be/mazer-lazer/issues"
+  },
+  "homepage": "https://github.com/tri-be/mazer-lazer#readme"
+}
