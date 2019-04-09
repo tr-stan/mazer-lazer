@@ -8,6 +8,7 @@ $("#instructions").hide();
 $("#lose-life").hide();
 $("#game-over").hide();
 $("#gem-count").hide();
+$("#winner").hide();
 
 // create cipher and answer
 // let cipherText = "ZDRA HT OZZ";
@@ -81,15 +82,15 @@ class Room {
 }
 
 // create object for each room in maze, connect the rooms according to desired maze logic
-let room1 = new Room("room1", "images/mid-hall.png");
-let room2 = new Room("room 2", "images/starry-hall.png", "good", "bad", false, false);
-let room3 = new Room("room 3", "images/mid-hall.png", "bad", "good", false, false);
-let room4 = new Room("room 4", "images/starry-hall.png", "bad", "bad", false, false);
-let room5 = new Room("room 5", "images/mid-hall.png", "bad", "good", false, false);
-let room6 = new Room("room 6", "images/two-blues.png", "good", "bad", false, false);
-let cipher = new Room("cipher", "images/dark-sides.png");
-let death = new Room("death", "images/die-faster.gif");
-let victory = new Room("victory", "images/spaceship-in-space.gif");
+let room1 = new Room("room1", "assets/images/mid-hall.png");
+let room2 = new Room("room 2", "assets/images/starry-hall.png", "good", "bad", false, false);
+let room3 = new Room("room 3", "assets/images/mid-hall.png", "bad", "good", false, false);
+let room4 = new Room("room 4", "assets/images/starry-hall.png", "bad", "bad", false, false);
+let room5 = new Room("room 5", "assets/images/mid-hall.png", "bad", "good", false, false);
+let room6 = new Room("room 6", "assets/images/two-blues.png", "good", "bad", false, false);
+let cipher = new Room("cipher", "assets/images/dark-sides.png");
+let death = new Room("death", "assets/images/die-faster.gif");
+let victory = new Room("victory", "assets/images/spaceship-in-space.gif");
 // declare properties of each room object to establish maze sequence logic
 room1.forward = room2;
 room1.left = room5;
@@ -159,7 +160,7 @@ $("#forward").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('images/die-faster.gif')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif')" });
         lives--;
         $("#first").hide();
         $("#second").hide();
@@ -205,7 +206,7 @@ $("#left").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('images/die-faster.gif')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif')" });
         lives--;
         $("#first").hide();
         $("#second").hide();
@@ -251,7 +252,7 @@ $("#right").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('images/die-faster.gif')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif')" });
         lives--;
         $("#first").hide();
         $("#second").hide();
@@ -276,6 +277,7 @@ $("#right").click(function() {
         $("#first").hide();
         $("#second").hide();
         $("#gem-count").hide();
+        $("#winner").show();
     }
 })
 
@@ -285,7 +287,7 @@ $("#first").click(function() {
     if ($(this).hasClass("good")) {
         numGems++;
         $("#gem-count").show();
-        $("#gem-count").append("<img src='images/diamond.png'>")
+        $("#gem-count").append("<img src='assets/images/diamond.png'>")
         $(this).hide();
         $(this).removeClass("good");
         console.log(`gems: ${numGems}`)
@@ -309,7 +311,7 @@ $("#second").click(function() {
     if ($(this).hasClass("good")) {
         numGems++;
         $("#gem-count").show();
-        $("#gem-count").append("<img class=`gem` src='images/diamond.png'>")
+        $("#gem-count").append("<img class=`gem` src='assets/images/diamond.png'>")
         $(this).hide();
         $(this).removeClass("good");
         console.log(`gems: ${numGems}`)
@@ -329,7 +331,7 @@ $("#second").click(function() {
 })
 
 $("#reset").click(function() {
-    $("#current-room").css({ "background-image": "url('images/start-screen.png')" });
+    $("#current-room").css({ "background-image": "url('assets/images/start-screen.png')" });
     $("#game-over").hide();
     $("#current-room").show();
     $("#start-game").show();

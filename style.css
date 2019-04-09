@@ -1,6 +1,6 @@
 @font-face {
     font-family: "PressStart2P";
-    src: url("PressStart2P.ttf");
+    src: url("assets/PressStart2P.ttf");
 }
 
 body {
@@ -35,7 +35,7 @@ h1 {
 #current-room {
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('images/start-screen.png');
+    background-image: url('assets/images/start-screen.png');
     height: 600px;
 }
 
@@ -69,7 +69,7 @@ h1 {
 #game-over {
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url("images/dead.png");
+    background-image: url("assets/images/dead.png");
     height: 600px;
 }
 
