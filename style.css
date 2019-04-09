@@ -1,35 +1,19 @@
-@keyframes stretch {
-    0% {
-        transform: scale(.2);
-        background-color: rgba(46, 9, 1, 1);
-        border-radius: 100%;
-    }
-
-    50% {
-
-        background-color: rgba(46, 9, 1, .5);
-    }
-
-    100% {
-        transform: scale(1);
-        background-color: rgba(46, 9, 1, .8);
-    }
-}
-
 @font-face {
     font-family: "PressStart2P";
     src: url("PressStart2P.ttf");
 }
 
 body {
+    box-sizing: border-box;
     margin: 0;
     width: 100%;
     background: #01162f;
     font-family: PressStart2P, sans-serif;
 }
 
+
 section {
-    text-align: center;
+    text-align: justify;
 
 }
 
@@ -39,8 +23,8 @@ div {
 }
 
 h1 {
-	background: rgba(11,79,174, 0.8);
-	padding: 10px;
+    background: rgba(11, 79, 174, 0.8);
+    padding: 10px;
 }
 
 .button {
@@ -56,11 +40,11 @@ h1 {
 }
 
 #instructions {
-	position: absolute;
-	top: 150px;
-	left: 70px;
-	background-color: rgba(145,192,253, 0.8);
-	padding: 50px;
+    position: absolute;
+    top: 150px;
+    left: 70px;
+    background-color: rgba(145, 192, 253, 0.8);
+    padding: 50px;
 }
 
 #room-name {
@@ -89,18 +73,23 @@ h1 {
     height: 600px;
 }
 
-#lose-life {
+#lose-life p {
     position: relative;
     top: -450px;
-    height: 200px;
-    width: 200px;
-    border-radius: 50px;
-    background-color: rgba(46, 9, 1, .8);
-    animation-name: stretch;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-fill-mode: none;
-    animation-play-state: running;
+    padding: 50px 100px;
+}
+
+#gem-count {
+	float: left;
+	position: absolute;
+}
+
+#gem-count img {
+    max-height: 30px;
+    max-width: 30px;
+    top: 10%;
+}
+
+#retry {
+	top: -100px;
 }

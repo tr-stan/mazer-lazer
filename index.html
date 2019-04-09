@@ -17,32 +17,37 @@
             <h1>INSTRUCTIONS</h1>
             <h2>How to Play</h2>
             <p>Click on the arrow buttons to navigate to new rooms.</p>
-            <p>If you aren't careful you'll walk right into a laser and lose a life.</p>
-            <p>The goal of the game is to reach the end of the maze.</p>
             <p>There are gems throughout the rooms.</p>
             <p>Some of them are booby traps, others are keys.</p>
+            <p>If you aren't careful you'll walk right into a laser and lose a life.</p>
+            <p>The goal of the game is to reach the end of the maze.</p>
+            
             <button id="x" class="button">X</button>
         </div>
         <div id="current-room">
+            <div id="gem-count">
+                <p>gems:</p>
+        	</div>
             <img id="first" class="button" src="images/emerald.png">
-            <img id="second" class="button" src="images/diamond.png">
+            <img id="second" class="button" src="images/sapphire.png">
             <div id="navigate">
                 <img id="left" class="button" src="images/lefty.gif">
                 <img id="forward" class="button" src="images/straighty.gif">
                 <img id="right" class="button" src="images/righty.gif">
         	</div>
-            </div>
-            <div id="lose-life">
-                <p>You tripped a wire and were shot by a laser.</p>
-                <button id="retry" class="button">Try again.</button>
-            </div>
-            <div id="game-over">
-                <h1>GAME OVER</h1>
-                <button id="reset" class="button">Play again</button>
-            </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="./app.js"></script>
+        <div id="lose-life">
+            <p>You set off an alarm and got shot with a LAZER</p>
+            <p id="lives-count"></p>
+            <button id="retry" class="button">Try Again</button>
+        </div>
+        <div id="game-over">
+            <h1>GAME OVER</h1>
+            <button id="reset" class="button">Play again</button>
+        </div>
+    </div>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="./app.js"></script>
 </body>
 
 </html>
