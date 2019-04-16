@@ -30,11 +30,11 @@ let numGems = 0;
 
 // create class for making room objects
 class Room {
-    constructor(name, background, firstClue, secondClue, firstClicked, secondClicked) {
+    constructor(name, background, firstGem, secondGem, firstClicked, secondClicked) {
         this.name = name;
         this.background = background;
-        this.firstClue = firstClue;
-        this.secondClue = secondClue;
+        this.firstGem = firstGem;
+        this.secondGem = secondGem;
         this.firstClicked = firstClicked;
         this.secondClicked = secondClicked;
     }
@@ -45,11 +45,11 @@ class Room {
         $("#current-room").css({ "background-image": "url(" + this.forward.background + ")" });
         if (currentRoom.firstClicked === false) {
             $("#first").show();
-            $("#first").addClass(this.forward.firstClue);
+            $("#first").addClass(this.forward.firstGem);
         }
         if (currentRoom.secondClicked === false) {
             $("#second").show();
-            $("#second").addClass(this.forward.secondClue);
+            $("#second").addClass(this.forward.secondGem);
         }
     }
     leftClick() {
@@ -58,11 +58,11 @@ class Room {
         $("#current-room").css({ "background-image": "url(" + this.left.background + ")" });
         if (currentRoom.firstClicked === false) {
             $("#first").show();
-            $("#first").addClass(this.left.firstClue);
+            $("#first").addClass(this.left.firstGem);
         }
         if (currentRoom.secondClicked === false) {
             $("#second").show();
-            $("#second").addClass(this.left.secondClue);
+            $("#second").addClass(this.left.secondGem);
         }
     }
     rightClick() {
@@ -71,11 +71,11 @@ class Room {
         $("#current-room").css({ "background-image": "url(" + this.right.background + ")" });
         if (currentRoom.firstClicked === false) {
             $("#first").show();
-            $("#first").addClass(this.right.firstClue);
+            $("#first").addClass(this.right.firstGem);
         }
         if (currentRoom.secondClicked === false) {
             $("#second").show();
-            $("#second").addClass(this.right.secondClue);
+            $("#second").addClass(this.right.secondGem);
         }
     }
 
@@ -126,6 +126,7 @@ $("#enter").click(function() {
     $("#right").show();
 })
 
+// modal for instructions
 $("#info").click(function() {
     $("#instructions").fadeIn();
     $("#x").click(function() {
@@ -337,7 +338,7 @@ $("#reset").click(function() {
     $("#start-game").show();
     $("#first").hide();
     $("#second").hide();
-    $(".gem").remove();
+    $("#gem-count").empty();
     $("#gem-count").hide();
     $(room2.firstClicked = false);
     $(room2.secondClicked = false);

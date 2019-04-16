@@ -28,7 +28,6 @@ h1 {
 }
 
 .button {
-    display: absolute;
     max-height: 100px;
 }
 
@@ -73,9 +72,12 @@ h1 {
     height: 600px;
 }
 
+#lose-life {
+    position: absolute;
+    top: 10vh;
+}
+
 #lose-life p {
-    position: relative;
-    top: -450px;
     padding: 50px 100px;
 }
 
@@ -91,5 +93,5 @@ h1 {
 }
 
 #retry {
-	top: -100px;
+
 }

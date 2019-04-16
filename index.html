@@ -20,21 +20,23 @@
             <p>There are gems throughout the rooms.</p>
             <p>Some of them are booby traps, others are keys.</p>
             <p>If you aren't careful you'll walk right into a laser and lose a life.</p>
-            <p>The goal of the game is to reach the end of the maze.</p>
-            
+            <p>If you collect enough gems, the route to escape will appear.</p>
             <button id="x" class="button">X</button>
         </div>
         <div id="current-room">
-            <div id="gem-count">
+            <div>
                 <p>gems:</p>
-        	</div>
+                <p id="gem-count"></p>
+                <p>lives:</p>
+                <p id="life-count"></p>
+            </div>
             <img id="first" class="button" src="assets/images/emerald.png">
             <img id="second" class="button" src="assets/images/sapphire.png">
             <div id="navigate">
                 <img id="left" class="button" src="assets/images/lefty.gif">
                 <img id="forward" class="button" src="assets/images/straighty.gif">
                 <img id="right" class="button" src="assets/images/righty.gif">
-        	</div>
+            </div>
         </div>
         <div id="lose-life">
             <p>You set off an alarm and got shot with a LAZER</p>
@@ -47,8 +49,8 @@
         </div>
         <h1 id="winner">YOU ESCAPED!!</h1>
     </div>
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-            <script type="text/javascript" src="./app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./app.js"></script>
 </body>
 
 </html>
