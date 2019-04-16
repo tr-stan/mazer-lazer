@@ -4,6 +4,7 @@ $("#left").hide();
 $("#right").hide();
 $("#first").hide();
 $("#second").hide();
+$(".stat").hide();
 $("#instructions").hide();
 $("#lose-life").hide();
 $("#game-over").hide();
@@ -124,6 +125,8 @@ $("#enter").click(function() {
     $("#forward").show();
     $("#left").show();
     $("#right").show();
+    $(".stat").show();
+    $("#life-count").append("<img src='assets/images/life.png'><img src='assets/images/life.png'><img src='assets/images/life.png'><img src='assets/images/life.png'><img src='assets/images/life.png'>")
 })
 
 // modal for instructions
@@ -161,8 +164,9 @@ $("#forward").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif?+Math.random()')" });
         lives--;
+        $("#life-count img:first-child").remove()
         $("#first").hide();
         $("#second").hide();
         if (lives <= 0) {
@@ -207,8 +211,9 @@ $("#left").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif?+Math.random()')" });
         lives--;
+        $("#life-count img:first-child").remove()
         $("#first").hide();
         $("#second").hide();
         if (lives <= 0) {
@@ -253,8 +258,9 @@ $("#right").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif?+Math.random()')" });
         lives--;
+        $("#life-count img:first-child").remove()
         $("#first").hide();
         $("#second").hide();
         if (lives <= 0) {
@@ -294,6 +300,7 @@ $("#first").click(function() {
         console.log(`gems: ${numGems}`)
     } else {
         lives--;
+        $("#life-count img:first-child").remove()
         $(this).hide();
         $(this).removeClass("bad");
         console.log(`lives: ${lives}`)
@@ -312,12 +319,13 @@ $("#second").click(function() {
     if ($(this).hasClass("good")) {
         numGems++;
         $("#gem-count").show();
-        $("#gem-count").append("<img class=`gem` src='assets/images/diamond.png'>")
+        $("#gem-count").append("<img src='assets/images/diamond.png'>")
         $(this).hide();
         $(this).removeClass("good");
         console.log(`gems: ${numGems}`)
     } else {
         lives--;
+        $("#life-count img:first-child").remove()
         $(this).hide();
         $(this).removeClass("bad");
         console.log(`lives: ${lives}`)

@@ -31,6 +31,11 @@ h1 {
     max-height: 100px;
 }
 
+.stat {
+    color: #eee;
+    font-size: 16px;
+}
+
 #current-room {
     background-repeat: no-repeat;
     background-position: center center;
@@ -81,12 +86,11 @@ h1 {
     padding: 50px 100px;
 }
 
-#gem-count {
-	float: left;
+#gem-count, #live-count {
 	position: absolute;
 }
 
-#gem-count img {
+#gem-count img, #life-count img {
     max-height: 30px;
     max-width: 30px;
     top: 10%;
