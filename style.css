@@ -2,19 +2,15 @@
     font-family: "PressStart2P";
     src: url("assets/PressStart2P.ttf");
 }
+* {
+    box-sizing: border-box;
+}
 
 body {
-    box-sizing: border-box;
     margin: 0;
     width: 100%;
     background: #01162f;
     font-family: PressStart2P, sans-serif;
-}
-
-
-section {
-    text-align: justify;
-
 }
 
 div {
@@ -27,26 +23,46 @@ h1 {
     padding: 10px;
 }
 
-.button {
-    max-height: 100px;
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: 5px solid black;
+    padding: 0.5rem;
+    background-color: rgba(11, 79, 174, 0.8);
 }
 
-.stat {
-    color: #eee;
+.button {
+    max-height: 10vh;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+span {
+    background-color: rgba(11, 79, 174, 0.8);
+}
+
+#stats {
+    color: #DDD;
     font-size: 16px;
+    text-align: left;
+    padding: 1rem;
 }
 
 #current-room {
     background-repeat: no-repeat;
     background-position: center center;
     background-image: url('assets/images/start-screen.png');
-    height: 600px;
+    width: 100vw;
+    min-height: 80vh;
 }
 
 #instructions {
     position: absolute;
-    top: 150px;
-    left: 70px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    height: auto;
     background-color: rgba(145, 192, 253, 0.8);
     padding: 50px;
 }
@@ -79,23 +95,27 @@ h1 {
 
 #lose-life {
     position: absolute;
-    top: 10vh;
+    width: 100vw;
+    height: 100vh;
+    top: 0vh;
+    left: 0;
+    right: 0;
 }
 
 #lose-life p {
-    padding: 50px 100px;
+    margin: 15vh auto 10vh auto;
+    padding: 50px;
+    max-width: 500px;
+    background-color: rgba(11, 79, 174, 0.8);
 }
 
 #gem-count, #live-count {
-	position: absolute;
+
 }
 
 #gem-count img, #life-count img {
+    display: inline-block;
     max-height: 30px;
     max-width: 30px;
     top: 10%;
-}
-
-#retry {
-
 }

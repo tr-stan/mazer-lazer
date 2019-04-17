@@ -8,7 +8,6 @@ $(".stat").hide();
 $("#instructions").hide();
 $("#lose-life").hide();
 $("#game-over").hide();
-$("#gem-count").hide();
 $("#winner").hide();
 
 // create cipher and answer
@@ -28,6 +27,7 @@ $("#winner").hide();
 let lives = 5;
 let guesses = 3;
 let numGems = 0;
+let currentRoom = {};
 
 // create class for making room objects
 class Room {
@@ -43,14 +43,12 @@ class Room {
     forwardClick() {
         $("#current-room").css({ "background-image": "none" });
         currentRoom = this.forward;
-        $("#current-room").css({ "background-image": "url(" + this.forward.background + ")" });
+        $("#current-room").css({ "background-image": "url(" + currentRoom.background + ")" });
         if (currentRoom.firstClicked === false) {
             $("#first").show();
-            $("#first").addClass(this.forward.firstGem);
         }
         if (currentRoom.secondClicked === false) {
             $("#second").show();
-            $("#second").addClass(this.forward.secondGem);
         }
     }
     leftClick() {
@@ -59,11 +57,9 @@ class Room {
         $("#current-room").css({ "background-image": "url(" + this.left.background + ")" });
         if (currentRoom.firstClicked === false) {
             $("#first").show();
-            $("#first").addClass(this.left.firstGem);
         }
         if (currentRoom.secondClicked === false) {
             $("#second").show();
-            $("#second").addClass(this.left.secondGem);
         }
     }
     rightClick() {
@@ -72,11 +68,9 @@ class Room {
         $("#current-room").css({ "background-image": "url(" + this.right.background + ")" });
         if (currentRoom.firstClicked === false) {
             $("#first").show();
-            $("#first").addClass(this.right.firstGem);
         }
         if (currentRoom.secondClicked === false) {
             $("#second").show();
-            $("#second").addClass(this.right.secondGem);
         }
     }
 
@@ -90,7 +84,7 @@ let room4 = new Room("room 4", "assets/images/starry-hall.png", "bad", "bad", fa
 let room5 = new Room("room 5", "assets/images/mid-hall.png", "bad", "good", false, false);
 let room6 = new Room("room 6", "assets/images/two-blues.png", "good", "bad", false, false);
 let cipher = new Room("cipher", "assets/images/dark-sides.png");
-let death = new Room("death", "assets/images/die-faster.gif");
+let death = new Room("death", "assets/images/die-faster.gif?Math.random()");
 let victory = new Room("victory", "assets/images/spaceship-in-space.gif");
 // declare properties of each room object to establish maze sequence logic
 room1.forward = room2;
@@ -115,7 +109,7 @@ cipher.forward = victory;
 cipher.left = room4;
 cipher.right = room6;
 
-let currentRoom = room1;
+currentRoom = room1;
 
 // click function to start the game from start page
 $("#enter").click(function() {
@@ -145,6 +139,7 @@ $("#retry").click(function() {
     $("#forward").show();
     $("#left").show();
     $("#right").show();
+    $("#gem-count").show();
 })
 
 // function for each time the player clicks the 'forward' button
@@ -155,6 +150,7 @@ $("#forward").click(function() {
         $("#first").hide();
         $("#second").hide();
         if (numGems < 4) {
+            console.log("You need 4 gems to proceed forward.")
             $("#forward").hide();
         } else {
             $("#forward").show();
@@ -164,7 +160,7 @@ $("#forward").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif?+Math.random()')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif#Math.random()')" });
         lives--;
         $("#life-count img:first-child").remove()
         $("#first").hide();
@@ -177,7 +173,6 @@ $("#forward").click(function() {
             $("#game-over").show();
         } else {
             console.log(lives);
-            $("#lives-count").text(`lives left: ${lives}`);
             $("#forward").hide();
             $("#left").hide();
             $("#right").hide();
@@ -202,6 +197,7 @@ $("#left").click(function() {
         $("#first").hide();
         $("#second").hide();
         if (numGems < 4) {
+            console.log("You need 4 gems to proceed forward.")
             $("#forward").hide();
         } else {
             $("#forward").show();
@@ -211,7 +207,7 @@ $("#left").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif?+Math.random()')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif#Math.random()')" });
         lives--;
         $("#life-count img:first-child").remove()
         $("#first").hide();
@@ -224,7 +220,6 @@ $("#left").click(function() {
             $("#game-over").show();
         } else {
             console.log(lives);
-            $("#lives-count").text(`lives left: ${lives}`);
             $("#forward").hide();
             $("#left").hide();
             $("#right").hide();
@@ -248,7 +243,8 @@ $("#right").click(function() {
     if (currentRoom === cipher) {
         $("#first").hide();
         $("#second").hide();
-        if (numGems < 2) {
+        if (numGems < 4) {
+            console.log("You need 4 gems to proceed forward.")
             $("#forward").hide();
         } else {
             $("#forward").show();
@@ -258,7 +254,7 @@ $("#right").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif?+Math.random()')" });
+        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif#Math.random()')" });
         lives--;
         $("#life-count img:first-child").remove()
         $("#first").hide();
@@ -271,7 +267,6 @@ $("#right").click(function() {
             $("#game-over").show();
         } else {
             console.log(lives);
-            $("#lives-count").text(`lives left: ${lives}`);
             $("#forward").hide();
             $("#left").hide();
             $("#right").hide();
@@ -291,12 +286,10 @@ $("#right").click(function() {
 // function for each time player clicks on a gem item
 $("#first").click(function() {
     currentRoom.firstClicked = true;
-    if ($(this).hasClass("good")) {
+    if (currentRoom.firstGem === "good") {
         numGems++;
-        $("#gem-count").show();
         $("#gem-count").append("<img src='assets/images/diamond.png'>")
         $(this).hide();
-        $(this).removeClass("good");
         console.log(`gems: ${numGems}`)
     } else {
         lives--;
@@ -316,12 +309,10 @@ $("#first").click(function() {
 
 $("#second").click(function() {
     currentRoom.secondClicked = true;
-    if ($(this).hasClass("good")) {
+    if (currentRoom.secondGem === "good") {
         numGems++;
-        $("#gem-count").show();
         $("#gem-count").append("<img src='assets/images/diamond.png'>")
         $(this).hide();
-        $(this).removeClass("good");
         console.log(`gems: ${numGems}`)
     } else {
         lives--;
@@ -347,7 +338,7 @@ $("#reset").click(function() {
     $("#first").hide();
     $("#second").hide();
     $("#gem-count").empty();
-    $("#gem-count").hide();
+    $(".stat").hide();
     $(room2.firstClicked = false);
     $(room2.secondClicked = false);
     $(room3.firstClicked = false);
