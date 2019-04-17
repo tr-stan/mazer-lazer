@@ -28,7 +28,7 @@ button {
     cursor: pointer;
     border: 5px solid black;
     padding: 0.5rem;
-    background-color: rgba(11, 79, 174, 0.8);
+    background-color: rgba(11, 79, 174, 0.9);
 }
 
 .button {
@@ -39,6 +39,8 @@ button {
 
 span {
     background-color: rgba(11, 79, 174, 0.8);
+    padding: 0.5rem;
+    min-width: 100px;
 }
 
 #stats {
@@ -49,11 +51,12 @@ span {
 }
 
 #current-room {
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-image: url('assets/images/start-screen.png');
+    height: 100vh;
     width: 100vw;
-    min-height: 80vh;
 }
 
 #instructions {
@@ -62,7 +65,6 @@ span {
     right: 0;
     width: 100vw;
     height: 100vh;
-    height: auto;
     background-color: rgba(145, 192, 253, 0.8);
     padding: 50px;
 }
@@ -93,6 +95,10 @@ span {
     height: 600px;
 }
 
+#winner {
+    position: absolute;
+}
+
 #lose-life {
     position: absolute;
     width: 100vw;
@@ -103,19 +109,15 @@ span {
 }
 
 #lose-life p {
-    margin: 15vh auto 10vh auto;
+    margin: 20vh auto 10vh auto;
     padding: 50px;
     max-width: 500px;
-    background-color: rgba(11, 79, 174, 0.8);
-}
-
-#gem-count, #live-count {
-
+    line-height: 2em;
 }
 
 #gem-count img, #life-count img {
     display: inline-block;
     max-height: 30px;
     max-width: 30px;
-    top: 10%;
+    top: 8vh;
 }

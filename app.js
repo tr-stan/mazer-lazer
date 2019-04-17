@@ -160,7 +160,7 @@ $("#forward").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif#Math.random()')" });
+        $("#current-room").css({ "background-image": `url('assets/images/die-faster.gif#${Math.random()}')` });
         lives--;
         $("#life-count img:first-child").remove()
         $("#first").hide();
@@ -185,6 +185,7 @@ $("#forward").click(function() {
         $("#first").hide();
         $("#second").hide();
         $("#gem-count").hide();
+        $("#winner").show();
     }
 })
 
@@ -207,7 +208,7 @@ $("#left").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif#Math.random()')" });
+        $("#current-room").css({ "background-image": `url('assets/images/die-faster.gif#${Math.random()}')` });
         lives--;
         $("#life-count img:first-child").remove()
         $("#first").hide();
@@ -232,6 +233,7 @@ $("#left").click(function() {
         $("#first").hide();
         $("#second").hide();
         $("#gem-count").hide();
+        $("#winner").show();
     }
 })
 
@@ -254,7 +256,7 @@ $("#right").click(function() {
         $("#second").hide();
     } else if (currentRoom === death) {
         $("#gem-count").hide();
-        $("#current-room").css({ "background-image": "url('assets/images/die-faster.gif#Math.random()')" });
+        $("#current-room").css({ "background-image": `url('assets/images/die-faster.gif#${Math.random()}')` });
         lives--;
         $("#life-count img:first-child").remove()
         $("#first").hide();
