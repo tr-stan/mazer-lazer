@@ -2,6 +2,7 @@
     font-family: "PressStart2P";
     src: url("assets/PressStart2P.ttf");
 }
+
 * {
     box-sizing: border-box;
 }
@@ -39,7 +40,8 @@ button {
 
 span {
     background-color: rgba(11, 79, 174, 0.8);
-    padding: 0.5rem;
+    padding: 0.3rem;
+    margin: 1rem;
     min-width: 100px;
 }
 
@@ -77,8 +79,7 @@ span {
 #navigate {
     position: absolute;
     top: 71%;
-    left: 49%;
-    transform: translate(-50%, -50%);
+    width: 100vw;
 }
 
 #start-game {
@@ -115,7 +116,8 @@ span {
     line-height: 2em;
 }
 
-#gem-count img, #life-count img {
+#gem-count img,
+#life-count img {
     display: inline-block;
     max-height: 30px;
     max-width: 30px;
